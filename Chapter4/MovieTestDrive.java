@@ -1,5 +1,5 @@
 /*
-	Objetivo: Apenas testando um simples 
+	Objetivo: Apenas testando um simples programa orientado a objetos
 */
 
 class Movie {

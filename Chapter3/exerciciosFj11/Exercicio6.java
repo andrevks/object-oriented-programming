@@ -18,19 +18,18 @@ class Exercicio6 {
 		int an1, an2;
 		an1 = 0; an2 = 1;
 		int fibo = 0;
+		System.out.println("------- Serie de FIBONACCI (ateh passar de 100) ---------");
+		System.out.print(an1 + ", ");
+		System.out.print(an2 + ", ");
 
-		for(byte n = 0; n < 10; n++){
+		for(byte n = 0; n < 11; n++){
 
-			if(n < 2){
-				System.out.println(n);
-				continue;
-			}
-
-			fibo += (int)(an1 + an2);
-			System.out.println(fibo);
+			fibo = (an1 + an2);
+			System.out.print(fibo + ", ");
 			an1 = an2;
-			an2 = (int)fibo;
+			an2 = fibo;
 		}
+		System.out.print("...");
 
 	}
 

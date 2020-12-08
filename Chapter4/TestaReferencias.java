@@ -5,14 +5,22 @@
 
 	Disciplina: Linguagem de Programação I
 
-	Objetivo: Exemplo capítulo 4.7
+	Objetivo: Fazer exemplos do capítulo 4
 
 */
+
+class Cliente { 
+	String nome;
+	String sobrenome;
+	String cpf;
+}
+
 class Conta {
-	int numero;
+	//Atributos recebem um valor padrão, como 0 ou false. Também podem ser atribuídos valores default.
+	int numero = 1000;
 	double saldo;
 	double limite;
-	String nome;
+	Cliente titular;
 
 
 	boolean saca(double valor) {
@@ -47,10 +55,13 @@ class Conta {
 
 
 }
+
+
 class TestaReferencias {
 	public static void main(String[] args) {
 		Conta c1 = new Conta();
 		c1.deposita(100);
+		
 
 		Conta c2 = c1;//Linha importante. Referenciado ao mesmo objeto
 		
@@ -62,12 +73,12 @@ class TestaReferencias {
 
 
 		Conta c3 = new Conta();
-		c3.nome = "Duke";
+	
 		c3.saldo = 227;
 
 
 		Conta c4 = new Conta();
-		c4.nome = "Duke";
+	
 		c4.saldo = 227;
 
 		if(c3 == c4) {
@@ -80,6 +91,22 @@ class TestaReferencias {
 		c3.transferePara(c4,27);
 		System.out.println(c3.saldo);
 		System.out.println(c4.saldo);
+		
+ 		System.out.println("Testando referencia de cliente");
+		Conta minhaConta = new Conta();
+		Cliente cli = new Cliente();
+		cli.nome = "Jack";
+		cli.cpf = "012.122.099-66";	
+		minhaConta.titular = cli;
+		System.out.println(cli == minhaConta.titular);
+		
+		Cliente clienteDaMinhaConta = minhaConta.titular;
+
+		System.out.println(clienteDaMinhaConta.nome);
+		clienteDaMinhaConta.nome = "John John";
+
+		System.out.println(clienteDaMinhaConta.nome);
+		System.out.println(minhaConta.titular.nome);
 		
 		
 

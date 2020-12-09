@@ -40,14 +40,15 @@ class Conta {
 	     return this.saldo * 0.1;
 	}
 
-
+	
 	void infoConta(){
 	     System.out.println("---------INFO DA CONTA---------");
 	     System.out.format("Titular: %s do numero: %d e agencia: %s, possui: R$ %.2f ", this.titular, this.numero, this.agencia, this.saldo);
 
 
 	}
-
+	
+	
 	boolean depositaPara(Conta destino, double valor){
              boolean sacou = this.saca(valor);
 	     if(sacou){

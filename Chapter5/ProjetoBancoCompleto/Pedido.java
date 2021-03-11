@@ -15,6 +15,7 @@ public class Pedido {
     public Pedido(){
         Itens = new ArrayList<Item>();
     }
+
     //métodos Acessores
     public int getId() {
         return id;
@@ -41,11 +42,16 @@ public class Pedido {
     }
 
     public float getValorTotal() {
+        this.calcularValorTotal();
         return ValorTotal;
     }
     
     private void setValorTotal(float valorTotal) {
         this.ValorTotal = valorTotal;
+    }
+
+    public void addItem(Item newItem){
+        this.Itens.add(newItem);
     }
     
     public void addProduto(Produto produto, float quantidade, float valorUnitario){
@@ -54,10 +60,11 @@ public class Pedido {
         item.setProduto(produto);
         item.setQuantidade(quantidade);
         item.setValorUnitario(valorUnitario);
-        Itens.add(item);
-        calcularValorTotal();
+        //Appends the specified element to the end of this list
+        addItem(item);
+        this.calcularValorTotal();
     }
-    
+
     public void addProduto(int produtoId, String descricaoProduto, float valorPadrao, float quantidade, float valorUnitario){
         Produto produto = new Produto();
         produto.setId(produtoId);
@@ -68,7 +75,7 @@ public class Pedido {
     
     public void delProduto(Item item){
         Itens.remove(item);
-        calcularValorTotal();
+        this.calcularValorTotal();
     }
     
     public void delProduto(int produtoId){
